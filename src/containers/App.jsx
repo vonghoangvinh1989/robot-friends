@@ -13,8 +13,7 @@ function App() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((users) => setRobots(users));
-    console.log(count);
-  }, [count]); // only run if count changes
+  }, []); // only run if count changes
 
   const onSearchChange = (event) => {
     setSearchfield(event.target.value);
@@ -29,7 +28,6 @@ function App() {
   ) : (
     <div className="tc">
       <h1 className="f2">RobotFriends</h1>
-      <button onClick={() => setCount(count + 1)}>Click Me!</button>
       <SearchBox searchChange={onSearchChange} />
       <Scroll>
         <CardList robots={filteredRobots} />
